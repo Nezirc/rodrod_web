@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <!-- skill:chrome -->
+ <link rel="icon" href="favicon.png" type="image/png">
 <style>
 /* Credit line — bottom-right */
 .design-ui-credit {
@@ -76,13 +77,11 @@
 <!-- /skill:libraries -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rod Benedict Gonde — Film & Video Editor</title>
+<title>Rodrod Films</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Archivo+Expanded:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<!-- Your styles -->
 <link rel="stylesheet" href="styles.css">
-<!-- Icon library -->
 <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
@@ -119,16 +118,14 @@
 </section>
 
 <!-- ============================================================= -->
-<!-- PROJECTS  ·  2 per row  ·  9:16 portrait videos               -->
+<!-- PROJECTS  ·  2 per row  ·  9:16 portrait                      -->
 <!--                                                               -->
-<!-- HOW TO ADD YOUR OWN VIDEO:                                    -->
-<!-- 1. Put your video file (e.g. project1.mp4) in the same folder -->
-<!--    as this HTML file, OR paste a direct video URL.            -->
-<!-- 2. In a card below, DELETE the <div class="placeholder">...   -->
-<!--    line and UN-COMMENT the <video> line under it.             -->
-<!-- 3. Change src="YOUR_VIDEO.mp4" to your file name or link.     -->
-<!-- 4. Edit the title and category text to match.                 -->
-<!-- To add MORE cards, just copy a whole <article class="shot">.  -->
+<!-- 1. Make a folder named  videos  next to this index.html       -->
+<!-- 2. Drop your clips in, named exactly:                         -->
+<!--      videos/project1.mp4 ... videos/project4.mp4              -->
+<!-- 3. Done. Click a card to open the centered fullscreen player. -->
+<!--    (black background, 9:16 stays centered)                    -->
+<!-- Export clips as MP4 / H.264 so browsers can play them.        -->
 <!-- ============================================================= -->
 <section id="projects" class="pad">
   <div class="wrap">
@@ -142,40 +139,43 @@
 
     <div class="reel">
 
-      <!-- ===== PROJECT 1 ===== -->
+      <!-- ===== PROJECT 1  →  videos/project1.mp4 ===== -->
       <article class="shot reveal">
-       <video src="videos/project1.mp4" muted loop playsinline preload="metadata" controls></video>
+        <video src="videos/project1.mp4" muted loop playsinline preload="metadata" ></video>
+        <button class="expand" aria-label="Open fullscreen"><i data-lucide="expand" width="18"></i></button>
         <div class="shot-overlay">
-          <div class="shot-top"><span class="shot-cat">Brand Film</span></div>
-          <div class="shot-bottom"><h3>Project One</h3><span class="sub">Edit · color · 9:16</span></div>
+          <div class="shot-top"><span class="shot-cat">Short Form</span></div>
+          <div class="shot-bottom"><h3>Project One</h3><span class="sub">9:16</span></div>
         </div>
       </article>
 
-      <!-- ===== PROJECT 2 ===== -->
+      <!-- ===== PROJECT 2  →  videos/project2.mp4 ===== -->
       <article class="shot reveal">
-         <video src="videos/project2.mp4" muted loop playsinline preload="metadata" controls></video>
+        <video src="videos/project2.mp4" muted loop playsinline preload="metadata" ></video>
+        <button class="expand" aria-label="Open fullscreen"><i data-lucide="expand" width="18"></i></button>
         <div class="shot-overlay">
-          <div class="shot-top"><span class="shot-cat">Music Video</span></div>
-          <div class="shot-bottom"><h3>Project Two</h3><span class="sub">Reels cut · 9:16</span></div>
+          <div class="shot-top"><span class="shot-cat">Short Form</span></div>
+          <div class="shot-bottom"><h3>Project Two</h3><span class="sub">9:16</span></div>
         </div>
       </article>
 
-      <!-- ===== PROJECT 3 ===== -->
+      <!-- ===== PROJECT 3  →  videos/project3.mp4 ===== -->
       <article class="shot reveal">
-         <video src="videos/project3.mp4" muted loop playsinline preload="metadata" controls></video>
+        <video src="videos/project3.mp4" muted loop playsinline preload="metadata" ></video>
+        <button class="expand" aria-label="Open fullscreen"><i data-lucide="expand" width="18"></i></button>
         <div class="shot-overlay">
-          <div class="shot-top"><span class="shot-cat">Short Doc</span></div>
-          <div class="shot-bottom"><h3>Project Three</h3><span class="sub">Story cut · 9:16</span></div>
+          <div class="shot-top"><span class="shot-cat">Short Form</span></div>
+          <div class="shot-bottom"><h3>Project Three</h3><span class="sub">9:16</span></div>
         </div>
       </article>
 
-      <!-- ===== PROJECT 4 ===== -->
+      <!-- ===== PROJECT 4  →  videos/project4.mp4 ===== -->
       <article class="shot reveal">
-        <div class="placeholder"><i data-lucide="video" width="26"></i><span class="mono">ADD VIDEO 4</span></div>
-        <!-- <video src="project4.mp4" muted loop playsinline preload="metadata" poster="thumb4.jpg" controls></video> -->
+        <video src="videos/project4.mp4" muted loop playsinline preload="metadata" poster="videos/thumb4.jpg"></video>
+        <button class="expand" aria-label="Open fullscreen"><i data-lucide="expand" width="18"></i></button>
         <div class="shot-overlay">
-          <div class="shot-top"><span class="shot-cat">Commercial</span></div>
-          <div class="shot-bottom"><h3>Project Four</h3><span class="sub">:30 social · 9:16</span></div>
+          <div class="shot-top"><span class="shot-cat">Short Form</span></div>
+          <div class="shot-bottom"><h3>Project Four</h3><span class="sub">9:16</span></div>
         </div>
       </article>
 
@@ -191,15 +191,13 @@
     <h2 style="margin-top:26px;">LET'S MAKE<br><span class="thin">SOMETHING.</span></h2>
     <p>Got footage that needs shaping? Tell me about the project and I'll tell you straight if I'm the right editor for it.</p>
     <div class="btn-row">
-      <a href="mailto:hello@rodgonde.film" class="btn btn-solid"><i data-lucide="mail" width="18"></i> hello@rodgonde.film</a>
+      <a href="mailto:rrodrod4@gmail.com" class="btn btn-solid"><i data-lucide="mail" width="18"></i> rrodrod4@gmail.com</a>
       <a href="#projects" class="btn btn-ghost"><i data-lucide="film" width="18"></i> View projects</a>
     </div>
     <div class="contact-info">
-      <div class="ci"><div class="k">Email</div><a class="v" href="mailto:hello@rodgonde.film">hello@rodgonde.film</a></div>
-      <div class="ci"><div class="k">Instagram</div><a class="v" href="#">@rodgonde</a></div>
-      <div class="ci"><div class="k">Facebook</div><a class="v" href="https://www.facebook.com/gusp.all.92" target="_blank">rodgonde</a></div>
+      <div class="ci"><div class="k">Email</div><a class="v" href="mailto:rrodrod4@gmail.com">rrodrod4@gmail.com</a></div>
+      <div class="ci"><div class="k">Instagram</div><a class="v" href="https://www.instagram.com/rodrod.29?fbclid=IwY2xjawSqKyJleHRuA2FlbQIxMABicmlkETFKR1VCc1hsRVVCM0V2SjlIc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHvSHkF1F8nJVXviyCCTTlZ0Z_GZsf06abzKxLOuB_wZ-PkuwBIwQ8rQoMk1e_aem_kgWUKDg8j0e582hMM08Xhw" target="_blank">rodrod.29</a></div>
       <div class="ci"><div class="k">Location</div><div class="v">Kitcharao, PH · UTC+8</div></div>
-      
     </div>
   </div>
 </section>
@@ -211,7 +209,12 @@
   </div>
 </footer>
 
-<!-- Your script -->
+<!-- ===== CENTERED FULLSCREEN PLAYER ===== -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lb-close" id="lbClose" aria-label="Close"><i data-lucide="x" width="22"></i></button>
+  <video id="lbVideo" controls playsinline></video>
+</div>
+
 <script src="script.js"></script>
 </body>
 </html>

@@ -100,23 +100,31 @@ header.scrolled{ background:color-mix(in oklab, var(--ink-0) 80%, transparent); 
 /* ===== PROJECTS: 2 per row, 9:16 portrait ===== */
 .reel{
   display:grid;
-  grid-template-columns:repeat(2, 1fr);   /* 2 per row */
+  grid-template-columns:repeat(2, 1fr);
   gap:clamp(16px,3vw,40px);
-  max-width:760px;            /* keeps portrait videos from getting huge */
+  max-width:760px;
   margin-inline:auto;
 }
 .shot{
   position:relative; overflow:hidden; border:1px solid var(--line); background:var(--ink-1);
-  aspect-ratio:9 / 16;        /* portrait */
-  border-radius:6px; transition:border-color .4s var(--ease-out-quint);
+  aspect-ratio:9 / 16;
+  border-radius:6px; cursor:pointer; transition:border-color .4s var(--ease-out-quint);
 }
 .shot:hover{ border-color:var(--violet-lo); }
-/* the video fills the frame */
 .shot video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; background:var(--ink-2); }
-/* placeholder shown when no video is linked yet */
-.shot .placeholder{ position:absolute; inset:0; display:grid; place-items:center; gap:10px; color:var(--grey-1);
-  background:linear-gradient(160deg, oklch(26% 0.06 300), oklch(15% 0.02 295)); }
-.shot .placeholder .mono{ font-family:'JetBrains Mono',monospace; font-size:0.72rem; letter-spacing:0.12em; }
+
+/* expand-to-fullscreen button */
+.expand{
+  position:absolute; top:12px; right:12px; z-index:3;
+  width:40px; height:40px; border-radius:50%; cursor:pointer;
+  border:1px solid var(--grey-2); color:var(--paper);
+  background:color-mix(in oklab,var(--ink-0) 55%, transparent);
+  display:grid; place-items:center; opacity:0; transform:scale(.7);
+  transition:opacity .35s var(--ease-out-expo), transform .35s var(--ease-out-expo), background .3s, border-color .3s;
+}
+.shot:hover .expand,
+.shot:focus-within .expand{ opacity:1; transform:scale(1); }
+.expand:hover{ background:var(--violet); border-color:var(--violet); }
 
 .shot-overlay{ position:absolute; inset:0; z-index:2; padding:clamp(14px,2vw,20px); display:flex; flex-direction:column; justify-content:space-between; pointer-events:none;
   background:linear-gradient(to top, color-mix(in oklab,var(--ink-0) 82%, transparent) 0%, transparent 42%); }
@@ -124,6 +132,33 @@ header.scrolled{ background:color-mix(in oklab, var(--ink-0) 80%, transparent); 
 .shot-cat{ font-family:'JetBrains Mono',monospace; font-size:0.66rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--violet-hi); border:1px solid var(--violet-lo); padding:5px 9px; border-radius:2px; background:color-mix(in oklab,var(--ink-0) 50%, transparent); }
 .shot-bottom h3{ font-size:clamp(1rem,2.4vw,1.35rem); font-weight:700; color:var(--paper); }
 .shot-bottom .sub{ color:var(--grey-2); font-size:0.82rem; }
+
+/* ===== CENTERED FULLSCREEN PLAYER ===== */
+.lightbox{
+  position:fixed; inset:0; z-index:9500;
+  display:flex; align-items:center; justify-content:center;
+  background:#000;                 /* pure black background */
+  opacity:0; visibility:hidden;
+  transition:opacity .35s var(--ease-out-expo), visibility .35s;
+}
+.lightbox.open{ opacity:1; visibility:visible; }
+.lightbox video{
+  height:100%; width:auto;         /* portrait clip fills height, stays centered */
+  max-width:100%;
+  aspect-ratio:9 / 16;
+  object-fit:contain;
+  background:#000;
+  transform:scale(.96); transition:transform .4s var(--ease-out-expo);
+}
+.lightbox.open video{ transform:scale(1); }
+.lb-close{
+  position:absolute; top:20px; right:20px; z-index:2;
+  width:46px; height:46px; border-radius:50%; cursor:pointer;
+  border:1px solid var(--line); color:var(--paper);
+  background:color-mix(in oklab,var(--ink-0) 60%, transparent);
+  display:grid; place-items:center; transition:background .3s, border-color .3s, transform .3s var(--ease-out-expo);
+}
+.lb-close:hover{ background:var(--violet); border-color:var(--violet); transform:rotate(90deg); }
 
 /* CONTACT */
 .contact{ text-align:center; position:relative; overflow:hidden; }
@@ -156,7 +191,7 @@ footer{ border-top:1px solid var(--line); padding-block:32px; }
 @media (max-width:560px){
   .nav-links{ display:none; }
   .menu-btn{ display:grid; place-items:center; }
-  .reel{ grid-template-columns:1fr; max-width:360px; }  /* 1 per row on phones */
+  .reel{ grid-template-columns:1fr; max-width:360px; }
   .about-grid{ grid-template-columns:1fr; }
 }
 @media (prefers-reduced-motion:reduce){ *{ animation:none!important; } .reveal{ opacity:1; transform:none; } }
