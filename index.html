@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- skill:chrome -->
+<style>
+/* Credit line — bottom-right */
+.design-ui-credit {
+  position: fixed;
+  bottom: 12px;
+  right: 12px;
+  font: 11px/1 system-ui, sans-serif;
+  color: rgba(128,128,128,0.5);
+  pointer-events: none;
+  z-index: 2147483647;
+  transition: opacity 0.4s ease;
+  user-select: none;
+  letter-spacing: 0.02em;
+}
+
+/* Hide chrome on touch devices */
+@media (hover: none) {
+  .design-ui-credit { display: none; }
+}
+
+/* Print fixes */
+@media print {
+  * {
+    transition: none !important;
+    animation: none !important;
+    box-shadow: none !important;
+  }
+  body {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+  .design-ui-credit { display: none !important; }
+}
+
+</style>
+<script>
+(function () {
+    // Chrome UI (hover devices only): credit badge with idle-fade.
+    // Deferred until body exists since the script may run in <head>.
+    function initChromeUI() {
+        if (!matchMedia('(hover: hover)').matches) return;
+
+        var credit = document.createElement('div');
+        credit.className = 'design-ui-credit';
+        credit.setAttribute('aria-hidden', 'true');
+        credit.innerHTML = '\u{1F49C} by ClickUp Brain';
+        document.body.appendChild(credit);
+
+        var timer = null;
+        var fade = function (out) { credit.style.opacity = out ? '0' : ''; };
+        fade(true);
+        var show = function () {
+            fade(false);
+            clearTimeout(timer);
+            timer = setTimeout(function () { fade(true); }, 3000);
+        };
+        document.addEventListener('mousemove', show);
+        show();
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initChromeUI);
+    } else {
+        initChromeUI();
+    }
+})();
+
+</script>
+<!-- /skill:chrome -->
+<!-- skill:libraries -->
+<script src="https://cdn.jsdelivr.net/npm/lucide@0.383.0/dist/umd/lucide.min.js" integrity="sha384-wHFvAtjmgnkA2PJcMsDaCgdipf7X7YV44X/igbLHpvGiq6T5/PvFKl93grpvtbQT" crossorigin="anonymous"></script>
+<script>document.addEventListener("DOMContentLoaded",()=>lucide.createIcons())</script>
+<!-- /skill:libraries -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rod Benedict Gonde — Film & Video Editor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Archivo+Expanded:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- Your styles -->
+<link rel="stylesheet" href="styles.css">
+<!-- Icon library -->
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#about" class="brand"><span class="rec"></span> ROD B. GONDE</a>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact" class="nav-cta">Get in touch</a>
+    </nav>
+    <button class="menu-btn" aria-label="Menu"><i data-lucide="menu" width="18"></i></button>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+  <div class="mesh"></div>
+  <div class="vignette"></div>
+  <div class="wrap about-inner">
+    <span class="eyebrow reveal">Film & Video Editor</span>
+    <h1 class="reveal">ROD BENEDICT<br><span class="thin">GONDE</span></h1>
+    <div class="about-grid reveal">
+      <p>I'm a video editor who turns raw footage into stories that hold attention. <span class="hl">Brand films, music videos, short docs,</span> and social cuts: I handle the edit, the color, and the rhythm that makes it all land.</p>
+      <div class="about-facts">
+        <div class="fact"><span class="k">Based in</span><span class="v">Kitcharao, PH</span></div>
+        <div class="fact"><span class="k">Tools</span><span class="v">CapCut · Premiere · Photoshop</span></div>
+        <div class="fact"><span class="k">Focus</span><span class="v accent">Story · Color · Pace</span></div>
+        <div class="fact"><span class="k">Status</span><span class="v accent">Open for work</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================= -->
+<!-- PROJECTS  ·  2 per row  ·  9:16 portrait videos               -->
+<!--                                                               -->
+<!-- HOW TO ADD YOUR OWN VIDEO:                                    -->
+<!-- 1. Put your video file (e.g. project1.mp4) in the same folder -->
+<!--    as this HTML file, OR paste a direct video URL.            -->
+<!-- 2. In a card below, DELETE the <div class="placeholder">...   -->
+<!--    line and UN-COMMENT the <video> line under it.             -->
+<!-- 3. Change src="YOUR_VIDEO.mp4" to your file name or link.     -->
+<!-- 4. Edit the title and category text to match.                 -->
+<!-- To add MORE cards, just copy a whole <article class="shot">.  -->
+<!-- ============================================================= -->
+<section id="projects" class="pad">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Selected work</span>
+        <h2 style="margin-top:18px;">Projects</h2>
+      </div>
+      <span class="idx">[ PORTRAIT REEL · 9:16 ]</span>
+    </div>
+
+    <div class="reel">
+
+      <!-- ===== PROJECT 1 ===== -->
+      <article class="shot reveal">
+       <video src="videos/project1.mp4" muted loop playsinline preload="metadata" controls></video>
+        <div class="shot-overlay">
+          <div class="shot-top"><span class="shot-cat">Brand Film</span></div>
+          <div class="shot-bottom"><h3>Project One</h3><span class="sub">Edit · color · 9:16</span></div>
+        </div>
+      </article>
+
+      <!-- ===== PROJECT 2 ===== -->
+      <article class="shot reveal">
+         <video src="videos/project2.mp4" muted loop playsinline preload="metadata" controls></video>
+        <div class="shot-overlay">
+          <div class="shot-top"><span class="shot-cat">Music Video</span></div>
+          <div class="shot-bottom"><h3>Project Two</h3><span class="sub">Reels cut · 9:16</span></div>
+        </div>
+      </article>
+
+      <!-- ===== PROJECT 3 ===== -->
+      <article class="shot reveal">
+         <video src="videos/project3.mp4" muted loop playsinline preload="metadata" controls></video>
+        <div class="shot-overlay">
+          <div class="shot-top"><span class="shot-cat">Short Doc</span></div>
+          <div class="shot-bottom"><h3>Project Three</h3><span class="sub">Story cut · 9:16</span></div>
+        </div>
+      </article>
+
+      <!-- ===== PROJECT 4 ===== -->
+      <article class="shot reveal">
+        <div class="placeholder"><i data-lucide="video" width="26"></i><span class="mono">ADD VIDEO 4</span></div>
+        <!-- <video src="project4.mp4" muted loop playsinline preload="metadata" poster="thumb4.jpg" controls></video> -->
+        <div class="shot-overlay">
+          <div class="shot-top"><span class="shot-cat">Commercial</span></div>
+          <div class="shot-bottom"><h3>Project Four</h3><span class="sub">:30 social · 9:16</span></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="pad contact">
+  <div class="mesh2"></div>
+  <div class="wrap reveal">
+    <span class="eyebrow" style="justify-content:center;">Open for projects</span>
+    <h2 style="margin-top:26px;">LET'S MAKE<br><span class="thin">SOMETHING.</span></h2>
+    <p>Got footage that needs shaping? Tell me about the project and I'll tell you straight if I'm the right editor for it.</p>
+    <div class="btn-row">
+      <a href="mailto:hello@rodgonde.film" class="btn btn-solid"><i data-lucide="mail" width="18"></i> hello@rodgonde.film</a>
+      <a href="#projects" class="btn btn-ghost"><i data-lucide="film" width="18"></i> View projects</a>
+    </div>
+    <div class="contact-info">
+      <div class="ci"><div class="k">Email</div><a class="v" href="mailto:hello@rodgonde.film">hello@rodgonde.film</a></div>
+      <div class="ci"><div class="k">Instagram</div><a class="v" href="#">@rodgonde</a></div>
+      <div class="ci"><div class="k">Facebook</div><a class="v" href="https://www.facebook.com/gusp.all.92" target="_blank">rodgonde</a></div>
+      <div class="ci"><div class="k">Location</div><div class="v">Kitcharao, PH · UTC+8</div></div>
+      
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-bottom">
+    <span>© 2026 ROD BENEDICT GONDE · VIDEO EDITOR</span>
+    <span>KITCHARAO · UTC+8</span>
+  </div>
+</footer>
+
+<!-- Your script -->
+<script src="script.js"></script>
+</body>
+</html>
