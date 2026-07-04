@@ -100,9 +100,9 @@ header.scrolled{ background:color-mix(in oklab, var(--ink-0) 80%, transparent); 
 /* ===== PROJECTS: 2 per row, 9:16 portrait ===== */
 .reel{
   display:grid;
-  grid-template-columns:repeat(2, 1fr);
+  grid-template-columns:repeat(3, 1fr);
   gap:clamp(16px,3vw,40px);
-  max-width:760px;
+  max-width:1140px;
   margin-inline:auto;
 }
 .shot{
