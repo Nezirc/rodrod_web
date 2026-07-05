@@ -62,3 +62,16 @@ document.addEventListener('fullscreenchange', () => {
 
 // Render the Lucide icons
 if (window.lucide) lucide.createIcons();
+
+document.querySelectorAll('.shot video').forEach((video) => {
+  const card = video.closest('.shot');
+
+  card.addEventListener('mouseenter', () => {
+    video.play().catch(() => {}); // catch autoplay errors silently
+  });
+
+  card.addEventListener('mouseleave', () => {
+    video.pause();
+    video.currentTime = 0; // remove this line if you'd rather it resume where it left off
+  });
+});
